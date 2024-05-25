@@ -1,0 +1,26 @@
+class Graph:
+    def __init__(self, edges, n):
+        self.adjList = [[] for _ in range(n)]
+        for (src, dest) in edges:
+            self.adjList[src].append(dest)
+
+def dfs_iterativa(grafo, vertice):
+    visitados = []
+    visitados.append(vertice)
+    falta_visitar = [vertice]
+    while falta_visitar:
+        vertice = falta_visitar.pop()
+        for vizinho in graph.adjList[vertice]:
+            if vizinho not in visitados:
+                visitados.append(vizinho)
+                falta_visitar.append(vizinho)
+    return visitados
+
+
+if __name__ == '__main__':
+    edges = [
+        (6,7),(6,5),(6,4),(5,7),(3,6),(4,3),(3,2),(2,7),(2,0),(2,1)
+    ]
+    n = 8
+    graph = Graph(edges, n)
+    print(dfs_iterativa(graph,6))

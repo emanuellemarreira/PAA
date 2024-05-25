@@ -1,0 +1,25 @@
+import random
+
+
+def analytic_solve(n):
+    return 2 * (2 ** n - 1)
+
+
+def simulate(n, num_simul=1000):
+    counts = []
+    for _ in range(num_simul):
+        count = 0
+        consec = 0
+        while consec != n:
+            is_head = random.random() > 0.5
+            if is_head:
+                consec += 1
+            else:
+                consec = 0
+            count += 1
+        counts.append(count)
+    return sum(counts) / len(counts)
+
+
+print(simulate(5))
+print(analytic_solve(5))

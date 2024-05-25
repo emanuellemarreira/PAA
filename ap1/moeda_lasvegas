@@ -1,0 +1,16 @@
+import random
+
+def simulate(n):
+    count = 0
+    consec = 0
+    while consec != n:
+        is_head = random.random() > 0.5
+        if is_head:
+            consec += 1
+        else:
+            consec = 0
+        print(is_head)
+        count += 1
+    return count
+
+print(simulate(5))
